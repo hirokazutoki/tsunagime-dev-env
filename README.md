@@ -6,11 +6,13 @@ $ git clone https://github.com/hirokazutoki/tsunagime-api.git tsunagime/tsunagim
 
 ## How to start
 ```shell
+$ cd tsunagime
 $ cp .env.example .env
 $ cp tsunagime-api/.env.example tsunagime-api/.env
 $ docker compose up -d
 $ docker compose exec tsunagime-api bash
 
 # inside container
+$ composer install
 $ ./artisan migrate:fresh --seed 
 ```
