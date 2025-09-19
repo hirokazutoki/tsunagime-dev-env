@@ -2,9 +2,9 @@ version: '3.8'
 
 services:
   tsunagime-api:
-    build: ../tsunagime-api
+    build: ./tsunagime-api
     volumes:
-      - ../tsunagime-api:/var/www/html
+      - ./tsunagime-api:/var/www/html
     ports:
       - "8000:8000"
     depends_on:
