@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  tsunagime-api:
+    build: ../tsunagime-api
+    volumes:
+      - ../tsunagime-api:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - tsunagime-db-server
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: tsunagime-db-server
+      DB_PORT: 3306
+      DB_DATABASE: tsunagime-db
+      DB_USERNAME: laravel
+      DB_PASSWORD: secret
+
+  tsunagime-db-server:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tsunagime-db
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
