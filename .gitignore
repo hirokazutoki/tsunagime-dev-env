@@ -1,3 +1,5 @@
 .env
 /.idea
 /tsunagime-api
+/tsunagime-client
+/tsunagime-admin
