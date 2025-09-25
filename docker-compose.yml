@@ -42,8 +42,6 @@ services:
     ports:
       - "3000:3000"
     command: sh -c "npm install && npm run dev"
-    environment:
-      NEXT_PUBLIC_API_URL: http://tsunagime-api:8000
     depends_on:
       - tsunagime-api
 
